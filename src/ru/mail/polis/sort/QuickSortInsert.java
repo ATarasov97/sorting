@@ -1,6 +1,5 @@
 package ru.mail.polis.sort;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Random;
@@ -8,13 +7,13 @@ import java.util.Random;
 /**
  * Created by alexandr on 19.11.17.
  */
-public class QuickSort1<T extends Comparable<T>> extends AbstractSortOnComparisons{
+public class QuickSortInsert<T extends Comparable<T>> extends AbstractSortOnComparisons{
 
     private Random random = new Random();
 
-    public QuickSort1() {}
+    public QuickSortInsert() {}
 
-    public QuickSort1(Comparator<? super T> comparator) {
+    public QuickSortInsert(Comparator<? super T> comparator) {
         this.comparator = comparator;
     }
 
@@ -55,7 +54,7 @@ public class QuickSort1<T extends Comparable<T>> extends AbstractSortOnCompariso
 
     public static void main(String[] args) {
         int[] a = new int[100];
-        QuickSort1<Integer> q = new QuickSort1<>();
+        QuickSortInsert<Integer> q = new QuickSortInsert<>();
         for (int i = 0; i < 100; i++) {
             a[i] = 100 - i;
         }

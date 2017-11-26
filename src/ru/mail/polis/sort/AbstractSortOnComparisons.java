@@ -8,7 +8,7 @@ import java.util.Comparator;
  */
 public class AbstractSortOnComparisons<T> {
 
-    private Comparator<? super T> comparator;
+    protected Comparator<? super T> comparator;
 
     public AbstractSortOnComparisons() {
         /* empty */

@@ -6,9 +6,6 @@ package ru.mail.polis.sort;
  */
 public class SimpleSortOnComparisons<T> extends AbstractSortOnComparisons<T> {
 
-    public SimpleSortOnComparisons() {
-        super();
-    }
 
     public void sort(T[] array) {
         int n = array.length;

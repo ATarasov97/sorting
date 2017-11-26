@@ -25,7 +25,7 @@ import ru.mail.polis.sort.SortUtils;
 @State(Scope.Thread)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MICROSECONDS)
-public class QuickSort2Bench {
+public class QuickSortThreeBench {
 
     private int[] a;
 
