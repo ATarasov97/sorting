@@ -1,5 +1,6 @@
 package ru.mail.polis.bench;
 
+import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 import org.openjdk.jmh.annotations.Benchmark;
@@ -24,16 +25,16 @@ import ru.mail.polis.sort.SortUtils;
 @OutputTimeUnit(TimeUnit.MICROSECONDS)
 public class BubbleSortBench {
 
-    private int[] a;
+    private Integer[] a;
 
     @Setup(value = Level.Invocation)
     public void setUpInvocation() {
-        a = SortUtils.generateArray(1000);
+        a = SortUtils.generateIntArray(1000);
     }
 
     @Benchmark
     public void measureBubbleSort(Blackhole bh) {
-        bh.consume(BubbleSort.sort(a));
+        bh.consume(BubbleSort.sort(Arrays.stream(a).mapToInt(Integer::intValue).toArray()));
     }
 
     public static void main(String[] args) throws RunnerException {

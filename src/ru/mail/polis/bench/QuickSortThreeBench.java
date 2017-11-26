@@ -1,6 +1,5 @@
 package ru.mail.polis.bench;
 
-import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 import org.openjdk.jmh.annotations.Benchmark;
@@ -27,18 +26,64 @@ import ru.mail.polis.sort.SortUtils;
 @OutputTimeUnit(TimeUnit.MICROSECONDS)
 public class QuickSortThreeBench {
 
-    private int[] a;
+    private final int N = 1000;
+    private Integer[] a1, a3, a4, a5, a6;
+    private String[] a2, a7;
 
-    QuickSortThree<Integer> qsort = new QuickSortThree<>();
+    private QuickSortThree<Integer> sortInt = new QuickSortThree<>();
+    private QuickSortThree<String> sortString = new QuickSortThree<>();
 
     @Setup(value = Level.Invocation)
     public void setUpInvocation() {
-        a = SortUtils.generateArray(1000);
+        a1 = SortUtils.generateNarrowRangeArray(N);
+        a2 = SortUtils.generateLongStringArray(N);
+        a3 = SortUtils.generateReverseHeap(N);
+        a4 = SortUtils.generateSortedArray(N);
+        a5 = SortUtils.generateReversedSortedArray(N);
+        a6 = SortUtils.generateIntArray(N);
+        a7 = SortUtils.generateStringArray(N);
     }
 
     @Benchmark
-    public void measureQuickSort1(Blackhole bh) {
-        bh.consume(qsort.sort(Arrays.stream(a).boxed().toArray( Integer[]::new ), 0, a.length - 1));
+    public void measureNarrowRange(Blackhole bh) {
+        sortInt.sort(a1);
+        bh.consume(a1);
+    }
+
+    @Benchmark
+    public void measureLongString(Blackhole bh) {
+        sortString.sort(a2);
+        bh.consume(a2);
+    }
+
+    @Benchmark
+    public void measureRevHeap(Blackhole bh) {
+        sortInt.sort(a3);
+        bh.consume(a3);
+    }
+
+    @Benchmark
+    public void measureSorted(Blackhole bh) {
+        sortInt.sort(a4);
+        bh.consume(a4);
+    }
+
+    @Benchmark
+    public void measureReverseSorted(Blackhole bh) {
+        sortInt.sort(a5);
+        bh.consume(a5);
+    }
+
+    @Benchmark
+    public void measureRandInt(Blackhole bh) {
+        sortInt.sort(a6);
+        bh.consume(a6);
+    }
+
+    @Benchmark
+    public void measureRandString(Blackhole bh) {
+        sortString.sort(a7);
+        bh.consume(a7);
     }
 
     public static void main(String[] args) throws RunnerException {

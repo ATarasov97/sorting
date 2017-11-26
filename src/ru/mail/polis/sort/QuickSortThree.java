@@ -4,12 +4,10 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Random;
 
-import javafx.util.Pair;
-
 /**
  * Created by alexandr on 19.11.17.
  */
-public class QuickSortThree<T extends Comparable<T>> extends AbstractSortOnComparisons {
+public class QuickSortThree<T extends Comparable<T>> extends AbstractSortOnComparisons<T> {
 
     private Random random = new Random();
 
@@ -20,15 +18,18 @@ public class QuickSortThree<T extends Comparable<T>> extends AbstractSortOnCompa
         this.comparator = comparator;
     }
 
-    public T[] sort(T[] a, int left, int right) {
+    @Override
+    public void sort(T[] array) {
+        sort(array, 0, array.length - 1);
+    }
+
+    public void sort(T[] a, int left, int right) {
         if (left >= right) {
-            return null;
+            return;
         }
         int idx = partition(a, left, right);
         sort(a, left, idx);
         sort(a, idx + 1, right);
-
-        return a;
     }
 
 
@@ -50,13 +51,13 @@ public class QuickSortThree<T extends Comparable<T>> extends AbstractSortOnCompa
     }
 
     public static void main(String[] args) {
-        int[] a = new int[100];
-        QuickSortInsert<Integer> q = new QuickSortInsert<>();
+        Integer[] a = new Integer[100];
+        QuickSortThree<Integer> q = new QuickSortThree<>();
         for (int i = 0; i < 100; i++) {
             a[i] = 100 - i;
         }
-        Integer[] s = q.sort(Arrays.stream(a).boxed().toArray(Integer[]::new), 0, 99);
-        System.out.println(Arrays.toString(s));
+        q.sort(a);
+        System.out.println(Arrays.toString(a));
     }
 
 }

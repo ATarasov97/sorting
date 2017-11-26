@@ -7,7 +7,7 @@ import java.util.Random;
 /**
  * Created by alexandr on 19.11.17.
  */
-public class QuickSortInsert<T extends Comparable<T>> extends AbstractSortOnComparisons{
+public class QuickSortInsert<T extends Comparable<T>> extends AbstractSortOnComparisons<T>{
 
     private Random random = new Random();
 
@@ -17,28 +17,31 @@ public class QuickSortInsert<T extends Comparable<T>> extends AbstractSortOnComp
         this.comparator = comparator;
     }
 
-    public T[] sort(T[] a, int left, int right) {
+    @Override
+    public void sort(T[] array) {
+        sort(array, 0, array.length - 1);
+    }
+
+    public void sort(T[] a, int left, int right) {
         if (left >= right) {
-            return null;
+            return;
         }
         if ((right - left + 1) > 10) {
             int idx = partition(a, left, right);
             sort(a, left, idx);
             sort(a, idx + 1, right);
         } else {
-            return insSort(a, left, right);
+            insSort(a, left, right);
         }
-        return a;
     }
 
-    private T[] insSort(T[] a, int left, int right) {
+    private void insSort(T[] a, int left, int right) {
         int n = right - left + 1;
         for (int i = 1; i < n; i++) {
             for (int j = i; j > 0 && lesser(a[j], a[j - 1]); j--) {
                 swap(a, j, j - 1);
             }
         }
-        return a;
     }
 
     private int partition(T[] a, int left, int right) {
@@ -53,13 +56,13 @@ public class QuickSortInsert<T extends Comparable<T>> extends AbstractSortOnComp
     }
 
     public static void main(String[] args) {
-        int[] a = new int[100];
+        Integer[] a = new Integer[100];
         QuickSortInsert<Integer> q = new QuickSortInsert<>();
         for (int i = 0; i < 100; i++) {
             a[i] = 100 - i;
         }
-        Integer[] s = q.sort(Arrays.stream(a).boxed().toArray( Integer[]::new ), 0, 99);
-        System.out.println(Arrays.toString(s));
+        q.sort(a);
+        System.out.println(Arrays.toString(a));
     }
 
 }

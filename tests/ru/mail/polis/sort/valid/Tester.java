@@ -38,11 +38,11 @@ public class Tester {
             {0, 1, 1, 0},
             {1},
             {Integer.MAX_VALUE, 0, 0, Integer.MIN_VALUE},
-            SortUtils.generateArray(1),
-            SortUtils.generateArray(10),
-            SortUtils.generateArray(100),
-            SortUtils.generateArray(1000),
-            SortUtils.generateArray(10000),
+                Arrays.stream(SortUtils.generateIntArray(1)).mapToInt(Integer::intValue).toArray(),
+                Arrays.stream(SortUtils.generateIntArray(10)).mapToInt(Integer::intValue).toArray(),
+                Arrays.stream(SortUtils.generateIntArray(100)).mapToInt(Integer::intValue).toArray(),
+                Arrays.stream(SortUtils.generateIntArray(1000)).mapToInt(Integer::intValue).toArray(),
+                Arrays.stream(SortUtils.generateIntArray(10000)).mapToInt(Integer::intValue).toArray(),
         });
     }
 

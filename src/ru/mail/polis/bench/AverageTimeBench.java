@@ -35,16 +35,16 @@ import ru.mail.polis.sort.SortUtils;
 @Fork(1)
 public class AverageTimeBench {
 
-    int[][] data;
-    int[] curr;
+    Integer[][] data;
+    Integer[] curr;
     int index;
 
     @Setup(value = Level.Trial)
     public void setUpTrial() {
-        data = new int[10][100];
+        data = new Integer[10][100];
         for (int i = 0; i < 10; i++) {
             //define arrays here
-            data[i] = SortUtils.generateArray(100);
+            data[i] = SortUtils.generateIntArray(100);
         }
     }
 
@@ -56,7 +56,7 @@ public class AverageTimeBench {
 
     @Benchmark
     public void measureBubbleSort() {
-        BubbleSort.sort(curr);
+        BubbleSort.sort(Arrays.stream(curr).mapToInt(Integer::intValue).toArray());
     }
 
     public static void main(String[] args) throws RunnerException {

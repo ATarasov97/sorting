@@ -8,13 +8,18 @@ import java.util.NoSuchElementException;
 public class ArrayPriorityQueue<Key extends Comparable<Key>> implements IPriorityQueue<Key> {
 
     private static final int DEFAULT_CAPACITY = 10;
+
     private Key[] elementData;
+
     private int tail = -1;
     private Comparator<Key> comparator;
-
     @SuppressWarnings("unchecked")
     public ArrayPriorityQueue() {
         elementData = (Key[]) new Comparable[DEFAULT_CAPACITY];
+    }
+
+    public Key[] getElementData() {
+        return elementData;
     }
 
     @SuppressWarnings("unchecked")
