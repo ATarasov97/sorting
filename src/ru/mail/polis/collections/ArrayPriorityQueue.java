@@ -1,4 +1,4 @@
-package seminar1.collections;
+package ru.mail.polis.collections;
 
 import java.util.Arrays;
 import java.util.Comparator;

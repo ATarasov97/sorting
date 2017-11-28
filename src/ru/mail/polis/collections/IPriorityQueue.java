@@ -1,4 +1,4 @@
-package seminar1.collections;
+package ru.mail.polis.collections;
 
 public interface IPriorityQueue<Key extends Comparable<Key>> extends Iterable<Key> {
 

@@ -12,7 +12,6 @@ import ru.mail.polis.structures.IntKeyStringValueObject;
 public class CountingSort<T extends IntKeyObject> {
 
     public void sort (T[] a) {
-        Arrays.sort(a);
         int max = findMax(a);
         int[] count = new int[max + 1];
         for (T x : a) count[x.getKey()]++;

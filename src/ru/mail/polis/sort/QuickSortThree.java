@@ -34,7 +34,7 @@ public class QuickSortThree<T extends Comparable<T>> extends AbstractSortOnCompa
 
 
     private int partition(T[] a, int left, int right) {
-        T p = a[left + random.nextInt(right - left + 1)];
+        swap(a, (left + random.nextInt(right - left + 1)), 0);
         int i = left, lt = left, gt = right;
         while (i <= gt) {
             if (lesser(a[i], a[lt])) {

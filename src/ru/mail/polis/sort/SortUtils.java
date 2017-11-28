@@ -4,7 +4,7 @@ import java.util.Comparator;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
-import seminar1.collections.ArrayPriorityQueue;
+import ru.mail.polis.collections.ArrayPriorityQueue;
 
 public class SortUtils {
 

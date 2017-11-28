@@ -3,7 +3,7 @@ package ru.mail.polis.sort;
 import java.util.Arrays;
 import java.util.Comparator;
 
-import seminar1.collections.ArrayPriorityQueue;
+import ru.mail.polis.collections.ArrayPriorityQueue;
 
 /**
  * Created by alexandr on 25.11.17.
