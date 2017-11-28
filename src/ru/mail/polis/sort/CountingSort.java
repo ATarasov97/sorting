@@ -1,5 +1,6 @@
 package ru.mail.polis.sort;
 
+import ru.mail.polis.structures.IntKeyObject;
 import java.lang.reflect.Array;
 import java.util.Arrays;
 
@@ -9,9 +10,10 @@ import ru.mail.polis.structures.IntKeyStringValueObject;
 /**
  * Created by alexandr on 25.11.17.
  */
-public class CountingSort<T extends IntKeyObject> {
+public class CountingSort<T extends IntKeyObject> implements Sort<T> {
 
-    public void sort (T[] a) {
+    @Override
+    public void sort(T[] a) {
         int max = findMax(a);
         int[] count = new int[max + 1];
         for (T x : a) count[x.getKey()]++;
@@ -32,16 +34,4 @@ public class CountingSort<T extends IntKeyObject> {
         }
         return max;
     }
-
-
-    public static void main(String[] args) {
-        IntKeyStringValueObject[] a = new IntKeyStringValueObject[100];
-        CountingSort<IntKeyStringValueObject> q = new CountingSort<>();
-        for (int i = 0; i < 100; i++) {
-            a[i] = new IntKeyStringValueObject(100 - i, "a");
-        }
-        q.sort(a);
-        System.out.println(Arrays.toString(a));
-    }
-
 }

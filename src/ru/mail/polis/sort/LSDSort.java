@@ -7,7 +7,7 @@ import ru.mail.polis.structures.Numerical;
 /**
  * Created by alexandr on 26.11.17.
  */
-public class LSDSort<T extends Numerical> extends AbstractSortOnComparisons<T>{
+public class LSDSort<T extends Numerical> extends AbstractSortOnComparisons<T> {
 
     @Override
     public void sort(T[] array) {
