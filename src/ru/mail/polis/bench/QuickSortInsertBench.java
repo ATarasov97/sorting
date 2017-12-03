@@ -33,7 +33,7 @@ public class QuickSortInsertBench {
     private QuickSortInsert<Integer> sortInt = new QuickSortInsert<>();
     private QuickSortInsert<String> sortString = new QuickSortInsert<>();
 
-    @Setup(value = Level.Invocation)
+    @Setup(value = Level.Trial)
     public void setUpInvocation() {
         a1 = SortUtils.generateNarrowRangeArray(N);
         a2 = SortUtils.generateLongStringArray(N);

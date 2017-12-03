@@ -33,7 +33,7 @@ public class QuickSortThreeBench {
     private QuickSortThree<Integer> sortInt = new QuickSortThree<>();
     private QuickSortThree<String> sortString = new QuickSortThree<>();
 
-    @Setup(value = Level.Invocation)
+    @Setup(value = Level.Trial)
     public void setUpInvocation() {
         a1 = SortUtils.generateNarrowRangeArray(N);
         a2 = SortUtils.generateLongStringArray(N);

@@ -15,6 +15,9 @@ public class SimpleInteger implements Numerical<SimpleInteger> {
         if (data == null) {
             throw new IllegalArgumentException("Source must be not null");
         }
+        if (data < 0) {
+            throw new IllegalArgumentException("Source must be positive");
+        }
         this.data = data;
         int i = 0;
         while ((data / (int)Math.pow(DIGIT_COUNT, i)) != 0) {

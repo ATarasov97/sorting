@@ -50,7 +50,7 @@ public class LSDSortBench {
         return res;
     }
 
-    @Setup(value = Level.Invocation)
+    @Setup(value = Level.Trial)
     public void setUpInvocation() {
         a1 = fix(SortUtils.generateNarrowRangeArray(N));
         a2 = fix(SortUtils.generateLongStringArray(N));

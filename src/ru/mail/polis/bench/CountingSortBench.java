@@ -39,7 +39,7 @@ public class CountingSortBench {
         return res;
     }
 
-    @Setup(value = Level.Invocation)
+    @Setup(value = Level.Trial)
     public void setUpInvocation() {
         a1 = fix(SortUtils.generateNarrowRangeArray(N));
         a3 = fix(SortUtils.generateReverseHeap(N));

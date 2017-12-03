@@ -31,7 +31,7 @@ public class MergeSortBench {
     private MergeSort<Integer> sortInt = new MergeSort<>();
     private MergeSort<String> sortString = new MergeSort<>();
 
-    @Setup(value = Level.Invocation)
+    @Setup(value = Level.Trial)
     public void setUpInvocation() {
         a1 = SortUtils.generateNarrowRangeArray(N);
         a2 = SortUtils.generateLongStringArray(N);
